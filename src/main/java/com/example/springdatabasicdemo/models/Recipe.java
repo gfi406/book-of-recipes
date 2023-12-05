@@ -24,6 +24,9 @@ public class Recipe extends BaseEntity {
     @ManyToOne
     @JoinColumn(name="tag_list_id")
     private TagList tagList;
+    @ManyToOne
+    @JoinColumn(name="diet_reicipie_list_id")
+    private DietRecipieList dietRecipieList;
 
     @Column(name = "imageURL", length = 50, nullable = false)
     public String getImageURL() {
