@@ -1,6 +1,8 @@
 package com.example.springdatabasicdemo.init;
 
-import jdk.internal.javac.PreviewFeature;
+import com.example.springdatabasicdemo.repositories.DietRepositories;
+import com.example.springdatabasicdemo.repositories.RecipieRepositories;
+//import jdk.internal.javac.PreviewFeature;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -13,8 +15,7 @@ import com.example.springdatabasicdemo.models.User;
 import com.example.springdatabasicdemo.models.Recipe;
 import com.example.springdatabasicdemo.models.Diet;
 import com.example.springdatabasicdemo.repositories.UserRepository;
-import com.example.springdatabasicdemo.repositories.RecipeRepository;
-import com.example.springdatabasicdemo.repositories.DietRepository;
+import com.example.springdatabasicdemo.repositories.*;
 
 import java.util.Optional;
 @Component
@@ -25,10 +26,10 @@ public class DbLoader implements ApplicationRunner {
     private UserRepository userRepository;
 
     @Autowired
-    private RecipeRepository recipeRepository;
+    private RecipieRepositories recipeRepository;
 
     @Autowired
-    private DietRepository dietRepository;
+    private DietRepositories dietRepository;
 
     @Override
     public void run(ApplicationArguments args) throws Exception{
