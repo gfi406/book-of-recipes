@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 @Table(name = "Diets")
 public class Diet extends BaseEntity
 {
-    private String imadeUrl, title, description;
+    private String imageUrl, title, description;
     private int tottalCalories;
     @ManyToOne
     @JoinColumn(name="featured_diet_id")
@@ -14,6 +14,18 @@ public class Diet extends BaseEntity
     @ManyToOne
     @JoinColumn(name="tag_list_id")
     private TagList tagList;
+    @ManyToOne
+    @JoinColumn(name="diet_reicipie_list_id")
+    private DietRecipieList dietRecipieList;
+
+    public FeaturedDiets getFeaturedDiet() {
+        return featuredDiet;
+    }
+
+    public void setFeaturedDiet(FeaturedDiets featuredDiet) {
+        this.featuredDiet = featuredDiet;
+    }
+
     public FeaturedDiets getFeaturedDiets() {
         return featuredDiet;
     }
@@ -24,10 +36,10 @@ public class Diet extends BaseEntity
     @Column(name = "imadeUrl", length = 50, nullable = false)
 
     public String getImadeUrl() {
-        return imadeUrl;
+        return imageUrl;
     }
     public void setImadeUrl(String imadeUrl) {
-        this.imadeUrl = imadeUrl;
+        this.imageUrl = imadeUrl;
     }
 
     @Column(name = "title", length = 50, nullable = false)
